@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
 html {
   box-sizing: border-box;
@@ -92,7 +92,7 @@ button:active {
   animation: spin 2s linear infinite;
 }
 /* Calendar Container */
-#calendar-container {
+.calendar-container {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -123,6 +123,37 @@ textarea::placeholder {
   box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* .calendar {
+  width: 300px;
+  border: 1px solid #ddd;
+  font-family: Arial, sans-serif;
+} */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f0f0f0;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  padding: 10px;
+}
+
+.day, .empty-day {
+  text-align: center;
+  padding: 5px;
+}
+
+.current-day {
+  background-color: #333;
+  color: white;
+  border-radius: 500%;
+}
 
 @keyframes spin {
   0% {

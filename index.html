@@ -1,56 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quote Generator</title>
-    <link rel="icon" type="image/png" href="curcubeu .jpg">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="curcubeu .jpg" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Quote Generator Project</h1>
-        </header>
-        <div class="main-content">
-            <div class="quote-section">
-                <!-- Quote -->
-                <div class="quote-text">
-                    <i class="fas fa-quote-left"></i>
-                    <span id="quote">Generated Quote here</span>
-                </div>
-                <!-- Author -->
-                <div class="quote-author">
-                    <span id="author">Author Name</span>
-                </div>
-                <!-- Textarea -->
-                <div class="quote-note">
-                    <textarea id="user-input" maxlength="150" placeholder="How do you feel? (max 150 chars)"></textarea>
-                </div>
-                <!-- Buttons -->
-                <div class="button-container">
-                    <button class="twitter-button" id="twitter" title="Tweet This!">
-                        <i class="fab fa-twitter"></i>
-                    </button>
-                    <button id="new-quote">New Quote</button>
-                    <button id="save-comment">Save to Calendar</button>
-                </div>
-            </div>
-            <aside class="calendar-section">
-                <!-- Calendar -->
-                <iframe src="https://calendar.google.com/calendar/embed?height=400&wkst=1&bgcolor=%23ffffff&ctz=Europe%2FBucharest&mode=MONTH&hl=en" 
-                    style="border:solid 1px rgba(255, 255, 255, 0.4)" width="100%" height="300" frameborder="0" scrolling="no">
-                    background-color: rgba(255, 255, 255, 0.4);
-                    box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.2);</iframe>
-
+    <div class="main-content">
+        <div class="quote-section">
+        <!-- Quote -->
+        <div class="quote-text">
+            <i class="fas fa-quote-left"></i>
+            <span id="quote">Generated Quote here</span>
+        </div>
+        <!-- Author -->
+        <div class="quote-author">
+            <span id="author">Author Name</span>
+        </div>
+        <!-- Textarea -->
+        <div class="quote-note">
+            <textarea
+            id="user-input"
+            maxlength="150"
+            placeholder="How do you feel? (max 150 chars)"
+            ></textarea>
+        </div>
+        <!-- Buttons -->
+        <div class="button-container">
+            <button class="twitter-button" id="twitter" title="Tweet This!">
+            <i class="fab fa-twitter"></i>
+            </button>
+            <button id="new-quote">New Quote</button>
+            <button id="save-comment">Save to Calendar</button>
+        </div>
         </div>
     </div>
-    
+    <div id="calendar-root"></div>
+        <!-- <div class="calendar"> -->
+            <!-- <aside class="calendar-section">
+            Calendar
+                <iframe src="https://calendar.google.com/calendar/embed?height=400&wkst=1&bgcolor=%23ffffff&ctz=Europe%2FBerlin&mode=MONTH&hl=en" 
+                style="border:solid 1px rgba(255, 255, 255, 0.4)" width="100%" height="300" frameborder="0" scrolling="no"></iframe> -->
+        <!-- </div> -->
+    </div>
+
     <!-- Loader -->
     <div class="loader" id="loader"></div>
     <!-- Script -->
-    <script src="./quotes.js"></script>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="quotes.js"></script>
     <script src="script.js"></script>
+    <script src="Calendar.js" type="text/babel"></script>
+    <script type="text/babel">
+    ReactDOM.render(<Calendar />, document.getElementById('calendar-root'));
+    </script>
+
 </body>
 </html>
