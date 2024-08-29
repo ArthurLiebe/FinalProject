@@ -2,6 +2,7 @@ const quoteContainer = document.querySelector('.quote-section');
 const quoteText = document.getElementById('quote');
 const authorText = document.getElementById('author');
 const twitterBtn = document.getElementById('twitter');
+const linkedinBtn = document.getElementById('linkedin');
 const newQuoteBtn = document.getElementById('new-quote');
 const saveCommentBtn = document.getElementById('save-comment');
 const loader = document.getElementById('loader');
@@ -69,6 +70,16 @@ function tweetQuote() {
   const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.innerText} - ${authorText.innerText}`;
   window.open(twitterUrl, '_blank');
 }
+
+// Share on LinkedIn
+function shareOnLinkedIn() {
+  const quote = encodeURIComponent(quoteText.innerText);
+  const author = encodeURIComponent(authorText.innerText);
+  const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=&title=${quote} - ${author}`;
+  window.open(linkedinUrl, '_blank');
+}
+
+
 function saveComment() {
   const commentBox = document.getElementById('user-input');
   const currentDate = new Date().toISOString().split('T')[0]; // Format the date as YYYY-MM-DD
@@ -76,13 +87,13 @@ function saveComment() {
   const comment = commentBox.value.trim();
 
   if (comment === "") {
-      alert("Please enter a comment.");
-      return;
+    alert("Please enter a comment.");
+    return;
   }
 
   const commentData = {
-      text: comment,
-      date: currentDate
+    text: comment,
+    date: currentDate
   };
 
   // Save to localStorage
@@ -99,8 +110,8 @@ function saveComment() {
 function loadComments() {
   const comments = JSON.parse(localStorage.getItem('comments')) || [];
   comments.forEach(commentData => {
-      console.log(`Comment: ${commentData.text}, Date: ${commentData.date}`);
-      // You can display these comments on the page if needed
+    console.log(`Comment: ${commentData.text}, Date: ${commentData.date}`);
+    // You can display these comments on the page if needed
   });
 }
 
@@ -109,6 +120,7 @@ function loadComments() {
 newQuoteBtn.addEventListener('click', newQuote);
 console.log(newQuoteBtn)
 twitterBtn.addEventListener('click', tweetQuote);
+linkedinBtn.addEventListener('click', shareOnLinkedIn);
 saveCommentBtn.addEventListener('click', saveComment);
 
 // On Load
